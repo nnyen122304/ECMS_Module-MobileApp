@@ -1,0 +1,30 @@
+
+<ion-content>
+    <ion-tabs >
+      <ion-tab-bar slot="bottom" color="danger" class="tab-bar">
+        <ion-tab-button tab="danh-muc" href="/menu-tabs/danh-muc/lop/(danh-muc:danh-muc)/(danh-muc:danh-muc)/(danh-muc:danh-muc)" >
+          <ion-icon name="home"></ion-icon>
+          <ion-label>Trang Chủ</ion-label>
+        </ion-tab-button>
+        <!-- ktra tài khoản đã đăng nhập hay chưa -->
+        <ion-tab-button *ngIf="checkLogin  " tab="hoc-tap" href="/menu-tabs/hoc-tap/segment/(hoc-tap:hoc-tap)/(hoc-tap:hoc-tap)" >
+          <ion-icon name="play"></ion-icon>
+          <ion-label>Học Tập</ion-label>
+        </ion-tab-button> 
+        <!-- <ng-template #elseBlock> 
+         
+        </ng-template> -->
+        <ion-tab-button tab="khuyen-mai">
+          <ion-icon name="heart"></ion-icon> 
+          <ion-label>Ưu Đãi</ion-label>
+        </ion-tab-button>
+        <ion-tab-button tab="tai-khoan">
+          <ion-icon name="person"></ion-icon>
+          <ion-label>Tài Khoản</ion-label>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+</ion-content>
+
+ 
+ 

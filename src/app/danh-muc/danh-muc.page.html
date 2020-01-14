@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar class="header">
+    <ion-buttons slot="start" >
+      <ion-menu-button color="light"></ion-menu-button>
+    </ion-buttons>
+    <ion-title color="light">
+      Khóa học
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+  
+<ion-content >
+  <ion-grid fixed>
+    <ion-row >
+      <ion-col size="12">
+        <p class="sologen">Chào mừng bạn đến với tiếng anh </p>
+        <p class="sologen">Nơi dẫn dắt tương lai!</p>
+        <br>
+        <ion-label [ngClass]="{'margin-left': isCSS}">Các khóa học đang chiêu sinh </ion-label>
+        <ion-list *ngFor="let khoa of layKhoa01 "  (click)="isTrangThai(khoa)">
+            <!-- routerLink="/menu-tabs/danh-muc/lop/{{khoa.maKhoa}}" routerLinkActive="active" -->
+          <ion-card class="i-card"> 
+            <ion-card-content>
+              <ion-card-title>{{khoa.tenKhoa}}</ion-card-title>
+              <ul class="list-group" [ngClass]="{'margin-top': isCSS, 'padding-left': isCSS }">
+                  <!-- <li class="list-group-item">Tên chứng chỉ: {{khoa.tenChungChi}}</li> -->
+                  <li class="list-group-item">Ngày bắt đầu: {{khoa.ngayBD}}</li>
+                  <li class="list-group-item">Ngày kết thúc: {{khoa.ngayKT}}</li>
+                  <li class="list-group-item">Trạng thái: {{khoa.tenTrangThai}}</li>
+                </ul>
+            </ion-card-content>  
+          </ion-card>
+        </ion-list>
+   
+        <ion-label [ngClass]="{'margin-left': isCSS}">Các khóa học đang giảng dạy </ion-label>
+        <ion-list *ngFor="let khoa of layKhoa02" (click)="isTrangThai(khoa)">
+            <!-- routerLink="/menu-tabs/danh-muc/lop/{{khoa.maKhoa}}" routerLinkActive="active"  -->
+          <ion-card class="i-card">
+            <ion-card-content>
+              <ion-card-title>{{khoa.tenKhoa}}</ion-card-title>
+              <ul class="list-group" [ngClass]="{'margin-top': isCSS, 'padding-left': isCSS }">
+                <!-- <li class="list-group-item">Tên chứng chỉ: {{khoa.tenChungChi}}</li> -->
+                <li class="list-group-item">Ngày bắt đầu: {{khoa.ngayBD}}</li>
+                <li class="list-group-item">Ngày kết thúc: {{khoa.ngayKT}}</li>
+                <li class="list-group-item">Trạng thái: {{khoa.tenTrangThai}}</li>
+              </ul>
+            </ion-card-content> 
+          </ion-card>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
+
+
+

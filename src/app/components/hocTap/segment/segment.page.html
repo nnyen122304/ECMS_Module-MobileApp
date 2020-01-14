@@ -1,0 +1,135 @@
+<ion-header >
+  <!-- [ngClass]="{'background-color': isCSS}" -->
+  <!-- no-border-top -->
+  <ion-toolbar class="header">
+    <ion-buttons slot="start" >
+      <ion-back-button defaultHref="/menu-tabs/hoc-tap" color="light"></ion-back-button>
+    </ion-buttons>
+    <ion-title  color="light">Học Tập</ion-title>
+  </ion-toolbar>
+</ion-header>
+ 
+<ion-content>
+  <ion-toolbar>
+    <!-- Default Segment --> 
+    <!-- scrollable --> 
+    <ion-segment (ionChange)="segmentChanged($event)"
+                          color="danger"> 
+        
+      <ion-segment-button value="lopHoc" class="ion-text-capitalize" id="segment-button" >
+        <ion-icon name="bookmarks" class="icon"></ion-icon>
+        <ion-label>Lớp Học</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="diemThi" class="ion-text-capitalize" id="segment-button" >
+        <ion-icon name="flower" class="icon"></ion-icon>
+        <ion-label>Điểm Thi</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="thongBao danhGia" class="ion-text-capitalize" id="segment-button">
+        <ion-icon name="notifications" class="icon"></ion-icon>
+        <ion-label>Thông Báo </ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="lichSu" class="ion-text-capitalize" id="segment-button">
+        <ion-icon name="clock" class="icon"></ion-icon>
+        <ion-label>Lịch Sử</ion-label>
+      </ion-segment-button>
+      
+    </ion-segment>
+  </ion-toolbar>
+ 
+  <div [ngSwitch]="valueSegmento" >
+
+    <ion-list *ngSwitchCase="'lopHoc'">
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="12">
+            <!-- <ion-item routerLink="/menu-tabs/hoc-tap/segment/{{maLop}}/lop-hoc-vien"  routerLinkActive="router-link-active">
+              <ion-icon slot="start" name="paper"></ion-icon>
+              <label color="danger" >Các lớp học viên</label>
+              <ion-icon slot="end" name="arrow-forward"></ion-icon>
+            </ion-item> -->
+            <ion-item routerLink="/menu-tabs/hoc-tap/segment/{{maLop}}/hoc-vien"  routerLinkActive="router-link-active">
+              <ion-icon slot="start" name="person"></ion-icon>
+              <label color="tertiary" >Thông tin học viên</label>
+              <ion-icon slot="end" name="arrow-forward"></ion-icon>
+            </ion-item>
+            <ion-item routerLink="/menu-tabs/hoc-tap/segment/{{maLop}}/thoi-khoa-bieu"  routerLinkActive="router-link-active">
+              <ion-icon slot="start" name="calendar"></ion-icon>
+              <label color="warning" >Thời khóa biểu</label>
+              <ion-icon slot="end" name="arrow-forward"></ion-icon>
+            </ion-item>
+            <ion-item routerLink="/menu-tabs/hoc-tap/segment/{{maLop}}/nhan-xet"  routerLinkActive="router-link-active">
+              <ion-icon slot="start" name="create"></ion-icon>
+              <label color="secondary" >Nhận xét</label>
+              <ion-icon slot="end" name="arrow-forward"></ion-icon>
+            </ion-item> 
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-list>
+  
+    <ion-list *ngSwitchCase="'thongBao danhGia'">
+      <ion-item>
+        <p>Thông báo<option value=""></option></p>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'diemThi'">
+        <ion-grid fixed>
+            <ion-row>
+              <ion-col size="12" *ngFor="let kq of layDiem">
+                <p>Tên bài Test: {{kq.tenBaiThi}}</p>
+                <table >
+                  <tr>
+                    <th>Kĩ Năng</th> 
+                    <th>Điểm</th>
+                  </tr>
+                  <tr>
+                    <td>{{kq.tenKiNang1}}</td>
+                    <td>{{kq.kq1}}</td>
+                  </tr>
+                  <tr>
+                    <td>{{kq.tenKiNang2}}</td>
+                    <td>{{kq.kq2}}</td>
+                  </tr>
+                  <tr>
+                    <td>{{kq.tenKiNang3}}</td>
+                    <td>{{kq.kq3}}</td>
+                  </tr>
+                  <tr>
+                    <td>{{kq.tenKiNang4}}</td>
+                    <td>{{kq.kq4}}</td>
+                  </tr>
+                  <tr>
+                    <th>Tổng</th>
+                    <td>{{kq.diemTong}}</td>
+                  </tr>
+                </table>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'lichSu'">
+      <ion-grid fixed> 
+        <ion-row  >
+          <ion-col size="12">
+              <ion-list *ngFor="let lichSu of sortLS">
+                <ion-card class="ion-text-center" 
+                        *ngIf="lichSu.maHocVien === maHocVien; else elseBlock">
+                  <ion-card-title >Học viên: {{lichSu.tenHocVien}}</ion-card-title>
+                  <ion-card-content > 
+                    <h2>Học tập tại lớp: {{lichSu.tenLop}}</h2>
+                    <h2 class="maTrangThai">Trạng thái: {{lichSu.tenTrangThai }}</h2>
+                  </ion-card-content>
+                </ion-card> 
+              </ion-list>     
+          </ion-col>
+        </ion-row>
+        <ng-template #elseBlock></ng-template>
+        
+      </ion-grid>
+    </ion-list>
+  </div>
+
+</ion-content>
+

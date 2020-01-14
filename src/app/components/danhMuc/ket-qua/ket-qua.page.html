@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar class="header">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/menu-tabs/danh-muc/lop/{{maLop}}" color="light"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="light">Kết Quả Thi Xếp Lớp</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12">
+        <p>Kết quả thi xếp lớp của bạn</p>
+        <table *ngFor="let kq of layKQXL">
+          <tr>
+            <th>Kĩ Năng</th>
+            <th>Điểm</th>
+            
+          </tr>
+          <tr>
+            <td>{{kq.tenKiNang1}}</td>
+            <td>{{kq.kq1}}</td>
+          </tr>
+          <tr>
+            <td>{{kq.tenKiNang2}}</td>
+            <td>{{kq.kq2}}</td>
+          </tr>
+          <tr>
+            <td>{{kq.tenKiNang3}}</td>
+            <td>{{kq.kq3}}</td>
+          </tr>
+          <tr>
+            <td>{{kq.tenKiNang4}}</td>
+            <td>{{kq.kq4}}</td>
+          </tr>
+          <tr>
+            <th>Tổng</th>
+            <td>{{kq.diemTong}}</td>
+          </tr>
+        </table>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content> 

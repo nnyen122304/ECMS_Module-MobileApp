@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>register</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  <h1>this is background for user register</h1>
+  <form  #userForm="ngForm" *ngIf="!submitted"  (ngSubmit)="onSubmit()" novalidate>
+    <!-- {{userForm.value | json}}
+    <hr>
+    {{userModel | json}}
+    {{userForm.form.valid}} -->
+    <!-- <ion-button (click)="clicktUser()">users</ion-button> -->
+    <ion-grid>
+      <ion-row >
+        <ion-col  size-md="6" size-lg="5" size-xs="12">
+          <div>
+            <h3>Tạo tài khoản!</h3>
+          </div>
+          <div >
+            <ion-label >Tên đăng kí: </ion-label>
+            <ion-item>
+              <ion-input name="username" type="text" #isName="ngModel" 
+                                   [class.is-invalid]="isName.invalid && isName.touched" class="form-control is-invalid" placeholder="Tên người dùng" [(ngModel)]="userModel.username" required></ion-input>          
+            </ion-item>
+            <br>
+            <ion-label >Email: </ion-label>
+            <!-- <ion-item>
+              
+              <ion-input name="email" type="email" class="form-control is-invalid" placeholder="your@email.com" [(ngModel)]="userModel.email" required></ion-input>
+            </ion-item> -->
+            <br>
+            <ion-label >Mật khẩu: </ion-label>
+            <ion-item>
+              
+              <ion-input name="password" type="password" class="form-control" placeholder="Mật Khẩu" [(ngModel)]="userModel.password" required></ion-input>
+            </ion-item>
+            <br>
+            <ion-label >Nhập lại mật khẩu: </ion-label>
+            <ion-item>
+              
+              <ion-input name="confirm" type="password" class="form-control" placeholder="Nhập lại mật khẩu" [(ngModel)]="userModel.confirm" required></ion-input>
+            </ion-item>
+          </div>
+
+          <div >
+            <ion-button  size="large" type="submit" [disabled]="userForm.invalid" expand="block">Đăng kí</ion-button>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>

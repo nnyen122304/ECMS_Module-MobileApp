@@ -1,0 +1,7 @@
+{
+  "name": "ECMS-MobileApp",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

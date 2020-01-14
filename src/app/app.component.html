@@ -1,0 +1,49 @@
+<ion-app>
+  <ion-split-pane>
+    <ion-menu >
+      <ion-header>
+        <ion-toolbar class="header">
+          <ion-title color="light">Menu</ion-title>
+        </ion-toolbar> 
+      </ion-header>
+      <ion-content> 
+        <ion-list>
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages ">
+            <ion-item [routerDirection]="'root'" [routerLink]="[p.url]">
+              <ion-icon slot="start" [name]="p.icon"></ion-icon>
+              <ion-label>
+                {{p.title}}
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+          <ion-item>
+            <ion-icon slot="start" name="call"></ion-icon>
+            <ion-label>Liên hệ: 0848291699</ion-label>
+          </ion-item>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+
+          <ion-item (click)="login()" *ngIf="isDangNhap ;else elseBlock">
+            <ion-icon slot="start" name="log-in"></ion-icon>
+            <ion-label color="danger">
+              Đăng nhập
+            </ion-label>
+          </ion-item>
+          <ng-template #elseBlock>
+            <ion-item (click)="logout()" >
+              <ion-icon slot="start" name="log-out"></ion-icon>
+              <ion-label color="danger">
+                Đăng xuất
+              </ion-label> 
+            </ion-item>
+          </ng-template>
+
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet main></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>

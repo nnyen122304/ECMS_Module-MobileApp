@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar class="header">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/menu-tabs/danh-muc" color="light"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="light">Lớp học</ion-title>
+  </ion-toolbar>
+</ion-header>
+ 
+<ion-content>
+  <div> 
+    <ion-card *ngFor="let lop of layLop">
+      <ion-card-content>
+        <ion-card-title >{{lop.tenLop}}</ion-card-title>
+        <ul class="list-group" >
+          <li class="list-group-item">Tên khóa: {{lop.tenKhoa}}</li>
+          <li class="list-group-item">Tên chứng chỉ: {{lop.tenChungChi}}</li>
+          <li class="list-group-item">Tên chương trình: {{lop.tenChuongTrinh}}</li>
+          <li class="list-group-item">Số tuần: {{lop.soTuan}}</li>
+          <li class="list-group-item">Lịch học: {{lop.lichHoc}}</li>
+          <li class="list-group-item">Học phí: {{lop.hocPhi}}</li>
+          <li class="list-group-item">Loại lớp: {{lop.loaiLop}}</li>
+        </ul>  
+      </ion-card-content>
+      <div [ngSwitch]="maTrangThai" class="thiXepLop">
+        <div *ngSwitchCase="'Cho đăng ký'" class="kqThi">
+          <ion-button class="kqThi" color="primary" (click)="deCuong(lop)">Đề Cương </ion-button> <br>
+          <ion-button  [disabled]='layDKXL' class="kqThi" color="primary" (click)="thiXepLop(lop)">Đăng kí thi xếp lớp</ion-button>
+          <ion-button  class="kqThi" color="primary" (click)="ketQua(lop)">Kết quả thi </ion-button>
+        </div>
+        <div *ngSwitchDefault >
+            <ion-button  class="kqThi" color="primary" (click)="deCuong(lop)" >Đề Cương </ion-button> <br>
+          <ion-button class="kqThi" color="primary" [disabled]='maKhoa02'>Đăng kí thi xếp lớp</ion-button>
+          <ion-button  class="kqThi" color="primary" [disabled]='maKhoa02'>Kết quả thi </ion-button>
+        </div> 
+      </div> 
+    </ion-card>
+  </div>
+  
+</ion-content>
+

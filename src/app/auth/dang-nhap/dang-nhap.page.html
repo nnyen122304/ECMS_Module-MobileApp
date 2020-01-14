@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar class="header">
+    <ion-buttons slot="start">
+      <ion-back-button  text="Thoát" icon="" color="light" ></ion-back-button>
+    </ion-buttons>  
+    <!-- <ion-button color="light" (click)="dismissLogin()" slot="end">Close</ion-button> -->
+    <ion-title color="light">Đăng Nhập</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="loginForm" (ngSubmit)="onFormSubmit(loginForm)">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Đăng Nhập</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item>
+          <ion-label position="floating">Tên Đăng Nhập</ion-label>
+          <ion-input type="text" formControlName="username"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Mật Khẩu</ion-label>
+          <ion-input type="password" formControlName="password"></ion-input>
+        </ion-item>
+        <p [ngClass]="{'color': isCSS}">{{errorLogin}}</p>
+        <ion-row>
+          <ion-col size="6" lines="none" lines="full">
+            <ion-button expand="full"  color="success" type="submit" [disabled]="!loginForm.valid">Đăng Nhập</ion-button>
+          </ion-col>
+          <ion-col size="6" lines="none">
+            <ion-button type="button" expand="full"   color="secondary" (click)="goRegister()">Đăng Kí</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+  </form>
+</ion-content>

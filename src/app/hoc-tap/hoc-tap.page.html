@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar class="header">
+    <!-- <ion-buttons slot="start" >
+      <ion-back-button defaultHref="/menu-tabs/hoc-tap" color="light"></ion-back-button>
+    </ion-buttons> -->
+    <ion-buttons slot="start" >
+      <ion-menu-button color="light"></ion-menu-button>
+    </ion-buttons>
+    <ion-title  color="light">Lớp Của Tôi</ion-title>
+  </ion-toolbar>
+</ion-header>
+ 
+<ion-content >  
+    <ion-grid fixed *ngIf="layLopLQ.length > 0  ; else elseBlock">
+    <ion-row > 
+      <ion-col size="12">
+          <ion-list *ngFor="let LopLQ of layLopLQ" (click)="goSegment(LopLQ)"  >
+             
+            <ion-card class="ion-text-center"  *ngIf="LopLQ.maTrangThai === '5'">
+              <ion-card-title >Học viên: {{LopLQ.tenHocVien}}</ion-card-title>
+              <ion-card-content > 
+                <h2>Học tập tại lớp: {{LopLQ.tenLop}}</h2>
+              </ion-card-content>
+            </ion-card>
+          </ion-list>     
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ng-template #elseBlock>Rất tiếc, Bạn chứ là học viên của trung tâm</ng-template>
+</ion-content>
+  

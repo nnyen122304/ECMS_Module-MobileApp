@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title >
+      Khóa học
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+    <br>
+    <ion-label color="success" [ngClass]="{'margin-left': isCSS}">Các khóa học đang chiêu sinh </ion-label>
+    <ion-list *ngFor="let khoa of layKhoa01" routerLink="/lop/{{khoa.maKhoa}}" >
+      <ion-card>
+        <ion-card-content>
+          <ion-card-title>{{khoa.tenKhoa}}</ion-card-title>
+          <ul class="list-group" [ngClass]="{'margin-top': isCSS, 'padding-left': isCSS }">
+              <li class="list-group-item">Tên chứng chỉ: {{khoa.tenChungChi}}</li>
+              <li class="list-group-item">Ngày bắt đầu: {{khoa.ngayBD}}</li>
+              <li class="list-group-item">Ngày kết thúc: {{khoa.ngayKT}}</li>
+              <li class="list-group-item">Trạng thái: {{khoa.tenTrangThai}}</li>
+            </ul>
+        </ion-card-content>
+      </ion-card>
+    </ion-list>
+    <br> 
+    <ion-label color="success" [ngClass]="{'margin-left': isCSS}">Các khóa học đang học </ion-label>
+    <ion-list *ngFor="let khoa of layKhoa02" routerLink="/lop/{{khoa.maKhoa}}" >
+      <ion-card>
+        <ion-card-content>
+          <ion-card-title>{{khoa.tenKhoa}}</ion-card-title>
+          <ul class="list-group" [ngClass]="{'margin-top': isCSS, 'padding-left': isCSS }">
+            <li class="list-group-item">Tên chứng chỉ: {{khoa.tenChungChi}}</li>
+            <li class="list-group-item">Ngày bắt đầu: {{khoa.ngayBD}}</li>
+            <li class="list-group-item">Ngày kết thúc: {{khoa.ngayKT}}</li>
+            <li class="list-group-item">Trạng thái: {{khoa.tenTrangThai}}</li>
+          </ul>
+        </ion-card-content>
+      </ion-card>
+    </ion-list>
+ 
+
+
+ 
+
+</ion-content>
+
+
+

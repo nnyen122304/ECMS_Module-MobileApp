@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar class="header">
+    <ion-buttons slot="start" >
+      <ion-back-button defaultHref="/menu-tabs/hoc-tap/segment/{{maLop}}/hoc-vien" color="light"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="light">Thông Tin Học Viên</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content> 
+  <ion-grid fixed> 
+    <ion-row *ngFor="let hv of layHocVien">
+      <ion-col size="12"> 
+        <ion-card>
+          <ion-card-title>Học Viên</ion-card-title>
+          <ion-card-content>
+            <ion-list>
+              <ul>
+                <li>Họ và Tên: {{hv.tenHocVien}}</li>
+                <li>Giới Tính: {{hv.gioiTinh}}</li>
+                <li>Năm Sinh: {{hv.ngaySinh}}</li>
+                <li>Số điện thoại: {{hv.SDT}}</li>
+              </ul>
+            </ion-list>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12">
+        <ion-card>
+          <ion-card-title>Người Giám Hộ</ion-card-title>
+          <ion-card-content>
+              <ion-list>
+                <ul>
+                  <li>Họ và Tên: {{hv.tenPhuHuynh}}</li>
+                  <li>Giới Tính: {{hv.gioiTinhPH}}</li>
+                  <li>Số điện thoại: {{hv.SDT}}</li>
+                </ul>
+              </ion-list>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+ 
+
+</ion-content>

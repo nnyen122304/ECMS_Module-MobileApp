@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar class="header">
+    <ion-title color="light">Ưu Đãi</ion-title>
+    <ion-buttons slot="start" >
+        <ion-menu-button color="light"></ion-menu-button>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content> 
+  <ion-grid fixed>  
+    <!-- <ion-row *ngIf="layUuDai.length > 0  ; else elseBlock">  -->
+    <ion-row *ngIf="layUuDai"> 
+      <ion-col size="12">
+          <ion-list *ngFor="let UuDai of layUuDai"  > 
+            <ion-card class="ion-text-center">
+              <ion-card-title >{{UuDai.tenUuDai}}</ion-card-title>
+              <ion-card-content > 
+                <h1 class="noiDung" >{{UuDai.noiDung}}</h1>
+                <h3 class="TG">Kết thúc ưu đãi: {{UuDai.TGKTUuDai}}</h3>
+              </ion-card-content>
+            </ion-card>
+          </ion-list>    
+      </ion-col>
+    </ion-row>
+    <!-- <ng-template #elseBlock>Rất tiếc, Chưa có ưu đãi dành cho bạn</ng-template> -->
+  </ion-grid>
+</ion-content>

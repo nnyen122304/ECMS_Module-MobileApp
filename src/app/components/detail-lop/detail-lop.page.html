@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Chi tiết lớp học</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+      <ion-card-title [ngClass]="{
+        'text-align': isCSS
+      }">
+        {{lop.tenLop}}</ion-card-title>
+      <ul class="list-group" [ngClass]="{'margin-left': isCSS,
+                                          'margin-top': isCSS }">
+        <li class="list-group-item">Tên khóa: {{lop.tenKhoa}}</li>
+        <li class="list-group-item">Tên chứng chỉ: {{lop.tenChungChi}}</li>
+        <li class="list-group-item">Tên chương trình: {{lop.tenChuongTrinh}}</li>
+        <li class="list-group-item">Số tuần: {{lop.soTuan}}</li>
+        <li class="list-group-item">Lịch học: {{lop.lichHoc}}</li>
+        <li class="list-group-item">Học phí: {{lop.hocPhi}}</li>
+        <li class="list-group-item">Loại lớp: {{lop.loaiLop}}</li>
+      </ul>  
+    </ion-card-content>
+  </ion-card>
+</ion-content>

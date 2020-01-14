@@ -1,0 +1,10 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>random-number</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <button mat-raised-button color="primary" (click)="logout();">Logout</button>
+  <p>Very secret random number: <span class="number">{{randomNumber | async}}</span></p>
+</ion-content>
